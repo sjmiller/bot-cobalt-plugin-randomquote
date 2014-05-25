@@ -1,0 +1,56 @@
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+Bot::Cobalt::Plugin::RandomQuote - Bot::Cobalt plugin for retrieving random quotes from files
+
+=head1 VERSION
+
+version 0.001
+
+=head1 SYNOPSIS
+
+   ## In plugins.conf
+   RandomQuote:
+      Module: Bot::Cobalt::Plugin::RandomQuote
+      Opts:
+         quotedir: <path to dir with quote files>
+
+=head1 DESCRIPTION
+
+A L<Bot::Cobalt> plugin.
+
+This plugin takes a directory with text files in it, and then creates commands,
+one for each file basename without the extension.  In this file it is assumed
+each line is a quote, and will randomly pick one.
+
+For example if I have a file named 'moon.txt' with the contents:
+
+   Say goodbye, cavemen! Go beat rocks together!
+   Let’s leave this primitive rock because there's nothing but cavemen here.
+   The explosion shall be of extraordinary magnitude. Just hang on.
+   If you have a problem with that maybe you should take that up with Mr. Laser.
+   Yes, on the moon nerds get their pants pulled down and they are spanked with moon rocks!
+   Here on the moon, our weekends are so advanced, they encompass the entire week.
+
+And in the channel:
+
+   #mychannel> !moon
+   < mybot> The explosion shall be of extraordinary magnitude. Just hang on.
+
+You may use the special tags ${nick} and ${channel} in your quotes to replace
+them with the src_nick and channel the command was executed in, respectively.
+
+=head1 AUTHOR
+
+Scott Miller <scott.j.miller@gmail.com>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2014 by Scott Miller.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
